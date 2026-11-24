@@ -1,0 +1,8 @@
+# Generated page, documentation source and media assets.
+index.html
+features.md
+features_ru.md
+ru/
+assets/
+node_modules/
+package-lock.json

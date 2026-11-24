@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151619">
+  <meta name="description" content="MiniCAD 0.9.25: 2D CAD, technical drawings, 3D B-Rep modeling, Milling, Turning, Cutting CAM, and CLI. Capabilities and limitations.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MiniCAD 0.9.25 — CAD / CAM / 3D">
+  <meta property="og:description" content="MiniCAD features and limitations: 2D CAD, 3D View, Milling, Turning, Cutting, and CLI.">
+  <title>MiniCAD 0.9.25 — Features and Limitations</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="ru" href="ru/index.html">
+  <meta property="og:locale" content="en_US">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="MiniCAD home">
+        <img src="assets/logo.svg" width="34" height="34" alt="">
+        <span>MiniCAD</span><span class="version">0.9.25</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav id="site-nav" aria-label="Main navigation">
+        <a href="#overview">Overview</a><a href="#reference">Features</a><a href="#limitations">Limitations</a>
+      </nav>
+      <div class="languages" role="group" aria-label="Language"><a href="index.html" lang="en" hreflang="en" aria-current="page">EN</a><a href="ru/index.html" lang="ru" hreflang="ru">RU</a></div>
+      <a class="header-doc" href="features.md">Documentation</a>
+    </div>
+  </header>
+  <main id="main">
+    <div id="top" class="container">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">CAD, 3D modeling and CAM in one application.</h1>
+          <p class="lead">MiniCAD combines 2D drafting and technical drawings, direct B-Rep solid modeling, CNC toolpaths for milling, turning and cutting, and a command-line interface.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#overview">See MiniCAD in action</a>
+            <a class="button outline" href="#reference">Browse capabilities</a>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <a class="screenshot-link" href="assets/images/hero.png" data-gallery data-caption="Main workspace" aria-label="Preview: Main workspace"><img class="screenshot" src="assets/images/hero.png" alt="MiniCAD — Main workspace" loading="eager" width="1442" height="932"></a>
+        </figure>
+      </section>
+    </div>
+
+    <section class="section overview-section" id="overview">
+      <div class="container">
+        <h2>Inside MiniCAD</h2>
+        <div class="feature-grid"><article class="feature-card feature-wide" id="showcase-cad">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/cad.png" data-gallery data-caption="2D CAD" aria-label="Preview: 2D CAD"><img class="screenshot" src="assets/images/cad.png" alt="MiniCAD — 2D CAD" loading="lazy" width="1443" height="931"></a></div>
+      <div class="feature-content">
+        <h3>2D CAD</h3>
+        <p>Create, edit, measure, and organize precise DXF geometry with numerical input, snapping, layers, and document-level undo/redo.</p>
+        <a class="feature-link" href="#group-cad">Explore capabilities</a>
+      </div>
+    </article>
+<article class="feature-card feature-wide" id="showcase-solid">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/solid.png" data-gallery data-caption="3D View" aria-label="Preview: 3D View"><img class="screenshot" src="assets/images/solid.png" alt="MiniCAD — 3D View" loading="lazy" width="1443" height="931"></a></div>
+      <div class="feature-content">
+        <h3>3D View</h3>
+        <p>Model and edit precise OpenCascade B-Rep solids, inspect STEP assemblies, view STL meshes, and transfer geometry to CAD or CAM.</p>
+        <a class="feature-link" href="#group-solid">Explore capabilities</a>
+      </div>
+    </article>
+<article class="feature-card" id="showcase-drawing">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/drawing.png" data-gallery data-caption="Technical Drawings" aria-label="Preview: Technical Drawings"><img class="screenshot" src="assets/images/drawing.png" alt="MiniCAD — Technical Drawings" loading="lazy" width="1493" height="929"></a></div>
+      <div class="feature-content">
+        <h3>Technical Drawings</h3>
+        <p>Produce dimensioned, annotated, multi-sheet technical drawings and editable ISO fastener symbols.</p>
+        <a class="feature-link" href="#group-drawing">Explore capabilities</a>
+      </div>
+    </article>
+<article class="feature-card" id="showcase-cam">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/cam.png" data-gallery data-caption="Tools, NC &amp; Playback" aria-label="Preview: Tools, NC &amp; Playback"><img class="screenshot" src="assets/images/cam.png" alt="MiniCAD — Tools, NC &amp; Playback" loading="lazy" width="1443" height="931"></a></div>
+      <div class="feature-content">
+        <h3>Tools, NC &amp; Playback</h3>
+        <p>Configure tools and postprocessors, manage CAM operations, generate NC output, and inspect toolpaths.</p>
+        <a class="feature-link" href="#group-cam">Explore capabilities</a>
+      </div>
+    </article>
+<article class="feature-card" id="showcase-milling">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/milling.png" data-gallery data-caption="Milling CAM" aria-label="Preview: Milling CAM"><img class="screenshot" src="assets/images/milling.png" alt="MiniCAD — Milling CAM" loading="lazy" width="1443" height="931"></a></div>
+      <div class="feature-content">
+        <h3>Milling CAM</h3>
+        <p>Generate 2.5D milling paths using DXF geometry, milling tools, cutter compensation, and configurable machining parameters.</p>
+        <a class="feature-link" href="#group-milling">Explore capabilities</a>
+      </div>
+    </article>
+<article class="feature-card" id="showcase-tool_library">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/tool_library.png" data-gallery data-caption="Tool Library" aria-label="Preview: Tool Library"><img class="screenshot" src="assets/images/tool_library.png" alt="MiniCAD — Tool Library" loading="lazy" width="962" height="652"></a></div>
+      <div class="feature-content">
+        <h3>Tool Library</h3>
+        <p>Keep milling cutters and turning inserts in one persistent library that can be exchanged as JSON.</p>
+        <a class="feature-link" href="#group-tool_library">Explore capabilities</a>
+      </div>
+    </article>
+<article class="feature-card" id="showcase-turning">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/turning.png" data-gallery data-caption="Turning CAM" aria-label="Preview: Turning CAM"><img class="screenshot" src="assets/images/turning.png" alt="MiniCAD — Turning CAM" loading="lazy" width="1442" height="932"></a></div>
+      <div class="feature-content">
+        <h3>Turning CAM</h3>
+        <p>Generate two-axis ISO lathe toolpaths for cylindrical stock, including facing, profiling, grooving, boring, and G32 thread turning.</p>
+        <a class="feature-link" href="#group-turning">Explore capabilities</a>
+      </div>
+    </article>
+<article class="feature-card" id="showcase-turning_sim">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/turning_sim.png" data-gallery data-caption="Turning Simulation" aria-label="Preview: Turning Simulation"><img class="screenshot" src="assets/images/turning_sim.png" alt="MiniCAD — Turning Simulation" loading="lazy" width="1495" height="931"></a></div>
+      <div class="feature-content">
+        <h3>Turning Simulation</h3>
+        <p>Preview turning toolpaths in Play and check material removal in Easy G-Code Plot (EGP) before posting the NC program.</p>
+        <a class="feature-link" href="#group-turning_sim">Explore capabilities</a>
+      </div>
+    </article>
+<article class="feature-card" id="showcase-cutting">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/cutting.png" data-gallery data-caption="Cutting CAM" aria-label="Preview: Cutting CAM"><img class="screenshot" src="assets/images/cutting.png" alt="MiniCAD — Cutting CAM" loading="lazy" width="1442" height="932"></a></div>
+      <div class="feature-content">
+        <h3>Cutting CAM</h3>
+        <p>Cutting is an independent CAM Setup and operation category alongside Milling and Turning.</p>
+        <a class="feature-link" href="#group-cutting">Explore capabilities</a>
+      </div>
+    </article>
+<article class="feature-card" id="showcase-cli">
+      <div class="feature-media"><a class="screenshot-link" href="assets/images/cli.png" data-gallery data-caption="CLI" aria-label="Preview: CLI"><img class="screenshot" src="assets/images/cli.png" alt="MiniCAD — CLI" loading="lazy" width="1438" height="932"></a></div>
+      <div class="feature-content">
+        <h3>CLI</h3>
+        <p>Use CAD, 3D geometry, CAM, and postprocessing without the graphical interface through recipe-driven commands.</p>
+        <a class="feature-link" href="#group-cli">Explore capabilities</a>
+      </div>
+    </article></div>
+      </div>
+    </section>
+
+    <section class="section reference-section" id="reference">
+      <div class="container">
+        <h2>Feature reference</h2>
+        <div class="filter-panel">
+          <label class="search-control"><span class="sr-only">Search capabilities</span>
+            <input id="feature-search" type="search" placeholder="Search features, formats, operations…" autocomplete="off"></label>
+          <label class="select-control">Area <select id="area-filter">
+            <option value="all">All areas</option>
+            <option value="cad">2D CAD</option><option value="drawing">Technical Drawings</option>
+            <option value="solid">3D View</option><option value="milling">Milling CAM</option>
+            <option value="tool_library">Tool Library</option>
+            <option value="turning">Turning CAM</option><option value="turning_sim">Turning Simulation</option><option value="cutting">Cutting CAM</option>
+            <option value="cam">Tools, NC & Playback</option><option value="cli">CLI</option>
+          </select></label>
+          <button class="clear-button" type="button" id="reset-filters">Clear</button>
+        </div>
+        <div class="reference-tools"><p id="filter-feedback" role="status" aria-live="polite" data-matching="Matching capabilities" data-idle=""></p>
+          <div class="reference-actions"><button type="button" id="expand-groups">Expand all</button><button type="button" id="collapse-groups">Collapse all</button></div>
+        </div>
+        <div class="reference-list"><details class="reference-group" id="group-cad" data-area="cad">
+      <summary><strong>2D CAD</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Create, edit, measure, and organize precise DXF geometry with numerical input, snapping, layers, and document-level undo/redo.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometric primitives</td>
+<td>Points, lines, polylines with straight and bulge arc segments, rectangles, regular polygons, circles, arcs, ellipses, and cubic splines.</td>
+</tr>
+<tr>
+<td>Construction geometry</td>
+<td>Horizontal, vertical, infinite, tangent, parallel, and perpendicular lines; circles and arcs from points, radii, or angles.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>TEXT and MTEXT entities with alignment, formatting, and wrapping.</td>
+</tr>
+<tr>
+<td>Numeric construction</td>
+<td>Coordinate- and dimension-driven geometry creation.</td>
+</tr>
+<tr>
+<td>Editing</td>
+<td>Move, rotate, scale, mirror, offset, trim, break, join, fillet, chamfer, and stretch.</td>
+</tr>
+<tr>
+<td>Arrays and clipboard</td>
+<td>Rectangular and circular arrays; copy, cut, paste, and cross-document clipboard operations.</td>
+</tr>
+<tr>
+<td>Geometry properties</td>
+<td>Edit dimensions and entity parameters, including polyline vertices, spline control points, and constrained rectangle geometry.</td>
+</tr>
+<tr>
+<td>Selection</td>
+<td>Select by DXF entity type, identify coincident geometry, and change drawing order.</td>
+</tr>
+<tr>
+<td>Measurement</td>
+<td>Point distance, object length/radius/diameter, explicit circle/arc diameter, and closed-object area.</td>
+</tr>
+<tr>
+<td>Object snapping</td>
+<td>Grid, endpoints, midpoints, centers, intersections, nearest points, and other supported snap modes.</td>
+</tr>
+<tr>
+<td>Coordinate systems</td>
+<td>World coordinates and multiple local coordinate systems; metric and inch units for CAD entry and display.</td>
+</tr>
+<tr>
+<td>Layers and documents</td>
+<td>Layer visibility, locking, and properties; multiple documents and sheets with independent histories.</td>
+</tr>
+<tr>
+<td>Undo and recovery</td>
+<td>Undo/redo, transaction rollback, protected saves, document recovery, and session diagnostics.</td>
+</tr>
+<tr>
+<td>DXF and CNC projects</td>
+<td>Native DXF read/write, <code>.cnc</code> project archives combining DXF and CAM data, and DXF with a <code>.cam.json</code> sidecar.</td>
+</tr>
+<tr>
+<td>Recent files</td>
+<td>Separate drawing and STEP/STL histories; long paths are shortened in menus, with the full path available in tooltips.</td>
+</tr>
+<tr>
+<td>2D to 3D</td>
+<td>Extrude and revolve closed profiles into STEP/STL bodies, including nested profiles; open results in 3D View.</td>
+</tr>
+<tr>
+<td>STEP sections</td>
+<td>Generate DXF sections from a STEP model at specified Z intervals.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details>
+<details class="reference-group" id="group-drawing" data-area="drawing">
+      <summary><strong>Technical Drawings</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Produce dimensioned, annotated, multi-sheet technical drawings and editable ISO fastener symbols.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dimensions</td>
+<td>Linear, horizontal, aligned, angular, radial, and diametral dimensions.</td>
+</tr>
+<tr>
+<td>Dimension layout</td>
+<td>Manual or automatic arrow, text, and extension placement.</td>
+</tr>
+<tr>
+<td>Fits and tolerances</td>
+<td>Fits, tolerance grades, numerical deviations, and 14 categories of geometric tolerances.</td>
+</tr>
+<tr>
+<td>Surface annotations</td>
+<td>Surface-finish symbols, unspecified roughness, datum references, and conventional metric-thread symbols.</td>
+</tr>
+<tr>
+<td>Drawing annotations</td>
+<td>Center lines, hatches, view and section designations, detail views, leaders, and position callouts.</td>
+</tr>
+<tr>
+<td>Tables and title blocks</td>
+<td>Editable technical requirements, tables, title-block attributes, and A4/A3/A2/A1 drawing frames.</td>
+</tr>
+<tr>
+<td>Multiple sheets</td>
+<td>Main and continuation sheets, sheet-specific histories, and vector printing of mixed-format drawing sets.</td>
+</tr>
+<tr>
+<td>Automatic dimensions</td>
+<td>Automatic dimension placement for recognized geometry, including hole grouping and placement diagnostics.</td>
+</tr>
+<tr>
+<td>ISO fasteners</td>
+<td>ISO 4017 bolts, ISO 4032 nuts, ISO 7089 washers, ISO 4762 socket-head screws, ISO 1207 slotted screws, and ISO 7380 button-head screws.</td>
+</tr>
+<tr>
+<td>Fastener parameters</td>
+<td>Catalogue sizes and valid lengths, front/side/both views, and conventional thread representation.</td>
+</tr>
+<tr>
+<td>Editable fastener macros</td>
+<td>Native DXF BLOCK/INSERT macro objects retain their standard, size, length, and view parameters for editing and regeneration.</td>
+</tr>
+<tr>
+<td>Drawing formatting</td>
+<td>Apply drawing formats across open documents as a grouped operation.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details>
+<details class="reference-group" id="group-solid" data-area="solid">
+      <summary><strong>3D View</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Model and edit precise OpenCascade B-Rep solids, inspect STEP assemblies, view STL meshes, and transfer geometry to CAD or CAM.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STEP and STL import</td>
+<td>STEP/XCAF B-Rep assemblies with component hierarchy, names, colors, placement, and materials; multiple STL meshes for viewing.</td>
+</tr>
+<tr>
+<td>3D primitives</td>
+<td>Box, cylinder, sphere, cone, torus, prism, and pyramid.</td>
+</tr>
+<tr>
+<td>Primitive placement</td>
+<td>XY/XZ/YZ planes or a selected planar face, with local XYZ offsets and signed extrusion direction.</td>
+</tr>
+<tr>
+<td>Transformations</td>
+<td>Position, rotate, mirror, and scale with a selectable base point.</td>
+</tr>
+<tr>
+<td>Boolean operations</td>
+<td>Union, subtract, and intersect exact B-Rep solids.</td>
+</tr>
+<tr>
+<td>Edge operations</td>
+<td>Exact B-Rep fillets and chamfers, including two-distance chamfers using a reference face.</td>
+</tr>
+<tr>
+<td>Holes</td>
+<td>Blind and through holes; entrance chamfers, counterbores, countersinks, and drill-point geometry.</td>
+</tr>
+<tr>
+<td>Threaded holes</td>
+<td>Catalogue-based thread-hole drill diameters with conventional, non-helical thread representation.</td>
+</tr>
+<tr>
+<td>Arrays</td>
+<td>Circular and two-direction rectangular arrays of bodies and selected recorded operations.</td>
+</tr>
+<tr>
+<td>Sections</td>
+<td>Display a planar section or split a B-Rep body using an X, Y, or Z plane.</td>
+</tr>
+<tr>
+<td>Operation editing</td>
+<td>Edit or delete recorded solid operations and rebuild from saved inputs where those inputs remain available.</td>
+</tr>
+<tr>
+<td>Geometric selection</td>
+<td>Select exact faces, edges, and vertices; filter by radius, length, area, normal, adjacency, range, and proximity.</td>
+</tr>
+<tr>
+<td>Snaps and measurements</td>
+<td>Snap to 3D geometric points; measure exact distances, angles, lengths, radii, areas, and coordinate differences, with a copyable result panel, in-view labels, and text toggles between Radius/Diameter and Angle/Supplement.</td>
+</tr>
+<tr>
+<td>Topology tracking</td>
+<td>Track relationships between B-Rep elements across recorded modeling steps.</td>
+</tr>
+<tr>
+<td>Body properties</td>
+<td>Dimensions, surface area, volume, mass properties, density, and assigned materials.</td>
+</tr>
+<tr>
+<td>Assembly export</td>
+<td>Export selected solids or full STEP/XCAF scenes with placements, metadata, colors, and repeated components.</td>
+</tr>
+<tr>
+<td>To CAD</td>
+<td>Generate top, bottom, front, back, left and right DXF projections plus X/Y/Z centre section outlines (no hatch) of exact B-Rep models; each selected view is centred on its own layer.</td>
+</tr>
+<tr>
+<td>To CAM</td>
+<td>Pass an oriented STEP/STL model as a reference triangle mesh into CAM, including storage inside <code>.cnc</code>; STEP/primitive bodies also get an editable <code>CAM_REFERENCE</code> top outline.</td>
+</tr>
+<tr>
+<td>Display and navigation</td>
+<td>Orthographic camera, ViewCube, solid/wireframe modes, object visibility, orbit, pan, zoom, and configurable triangulation quality.</td>
+</tr>
+<tr>
+<td>Scene state</td>
+<td>Separate scene, camera, selection, and undo/redo for each open document; crash-recovery snapshots include 3D state.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details>
+<details class="reference-group" id="group-milling" data-area="milling">
+      <summary><strong>Milling CAM</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Generate 2.5D milling paths using DXF geometry, milling tools, cutter compensation, and configurable machining parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Operation or feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contour 2D</td>
+<td>Open/closed profiles, inside/outside machining, direction, lead-in/out, side passes, and chamfer mode.</td>
+</tr>
+<tr>
+<td>Pocket 2D</td>
+<td>Closed pockets with islands, depth and lateral steps, tool-radius offsets, and nested-region handling.</td>
+</tr>
+<tr>
+<td>Adaptive 2D</td>
+<td>Engagement-based toolpaths with optimal load, finishing, connection planning, geometric tolerance, and minimum cutting radius.</td>
+</tr>
+<tr>
+<td>Open Pocket</td>
+<td>A simple U-shaped wall without Setup, or an unambiguous region bounded by Setup stock and selected open walls, including internal islands.</td>
+</tr>
+<tr>
+<td>Rest Milling</td>
+<td>Geometric remaining-area estimation for Contour and Pocket using a preceding tool diameter and stock allowance.</td>
+</tr>
+<tr>
+<td>Finish Walls</td>
+<td>Additional nominal-wall finishing paths after rough passes in Contour and Pocket.</td>
+</tr>
+<tr>
+<td>Engrave</td>
+<td>Engraving of TEXT/MTEXT outlines.</td>
+</tr>
+<tr>
+<td>Drilling</td>
+<td>G81, G82, G83, and G84 cycles or explicit G1/G0 drilling moves; G83 uses peck depth Q and dwell P.</td>
+</tr>
+<tr>
+<td>Face</td>
+<td>Zigzag or one-way face milling.</td>
+</tr>
+<tr>
+<td>Bore</td>
+<td>Helical bore machining, bottom finishing, internal/external selection, and radial passes.</td>
+</tr>
+<tr>
+<td>ThreadMill</td>
+<td>Internal/external, right-/left-hand thread milling with helical interpolation.</td>
+</tr>
+<tr>
+<td>Entry strategies</td>
+<td>Plunge, contour ramp, linear ramp, pocket helix, and center entry where supported.</td>
+</tr>
+<tr>
+<td>Machining parameters</td>
+<td>Stepdown, stepover, stock allowances, feed rates, spindle speed, safe Z, coolant, and tool selection. Side stepover defaults to 40% of the tool diameter and accepts up to the full diameter.</td>
+</tr>
+<tr>
+<td>Toolpath Length</td>
+<td>The Operations table shows the total feed-move length before Time, excluding G0 rapids and including exact native arc lengths.</td>
+</tr>
+<tr>
+<td>Geometry and safety checks</td>
+<td>Tool clearance, admissible entry paths, profile validation, arc handling, and stale-result detection.</td>
+</tr>
+<tr>
+<td>Path regeneration</td>
+<td>Recalculate stored operations from their source geometry and parameters.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details>
+<details class="reference-group" id="group-tool_library" data-area="tool_library">
+      <summary><strong>Tool Library</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Keep milling cutters and turning inserts in one persistent library that can be exchanged as JSON.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Milling tools</td>
+<td>Milling tool table with tool numbers T/H/D.</td>
+</tr>
+<tr>
+<td>Turning inserts</td>
+<td>Turning insert types and orientation information.</td>
+</tr>
+<tr>
+<td>Shared library</td>
+<td>Milling and turning share the same persistent tool library.</td>
+</tr>
+<tr>
+<td>JSON exchange</td>
+<td>Import and export the tool library as JSON.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details>
+<details class="reference-group" id="group-turning" data-area="turning">
+      <summary><strong>Turning CAM</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Generate two-axis ISO lathe toolpaths for cylindrical stock, including facing, profiling, grooving, boring, and G32 thread turning.</p>
+<table>
+<thead>
+<tr>
+<th>Operation or feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Turning Setup</td>
+<td>Cylindrical stock with outside diameter, optional pilot bore, length, and front-face Z; separate turning operation category.</td>
+</tr>
+<tr>
+<td>Stock selection</td>
+<td>Select on canvas fills stock dimensions from a Z/radius rectangle relative to the selected work origin; radii are doubled into diameters. Apply saves the change as one undo/redo step.</td>
+</tr>
+<tr>
+<td>Face</td>
+<td>Face turning with explicit ISO tool movements.</td>
+</tr>
+<tr>
+<td>Rough</td>
+<td>External or accessible internal longitudinal roughing with radial steps and allowance.</td>
+</tr>
+<tr>
+<td>Finish</td>
+<td>Profile finishing in XZ with geometric insert-tip radius compensation.</td>
+</tr>
+<tr>
+<td>Groove</td>
+<td>Repeated plunges using insert width; starts at the selected groove opening with a safe approach distance.</td>
+</tr>
+<tr>
+<td>Boring (ID)</td>
+<td>Internal machining of an accessible profile with a pilot bore and suitable insert orientation.</td>
+</tr>
+<tr>
+<td>Thread Turn</td>
+<td>OD and ID straight-thread passes generated as G32 in the GUI and CLI.</td>
+</tr>
+<tr>
+<td>Lathe Drilling</td>
+<td>Ordinary or full-retract peck drilling on X0 along Z with explicit G0/G1, drill diameter/length, depth, clearance, feed, RPM, T and M3/M4; available through GUI and CLI.</td>
+</tr>
+<tr>
+<td>Thread parameters</td>
+<td>OD/ID selection, start/end Z, pitch F, radial depth P, clearance R, first-pass depth, minimum pass depth, and finishing-pass count on one dialog tab.</td>
+</tr>
+<tr>
+<td>Profile input</td>
+<td>Connected DXF LINE/ARC chains or unambiguous closed axial profiles, preserving circular arcs and the internal order of joined polyline segments.</td>
+</tr>
+<tr>
+<td>Profile direction</td>
+<td>Segment arrows remain visible on turning polyline segments before operation parameters are complete.</td>
+</tr>
+<tr>
+<td>Insert geometry</td>
+<td>80° and 35° diamond inserts, groove and threading inserts, tip radii, orientation checks, and geometric tool preview.</td>
+</tr>
+<tr>
+<td>Groove tool reference</td>
+<td>OD P3 / ID P2 groove-tool reference convention; width extends toward +Z from the programmed front edge.</td>
+</tr>
+<tr>
+<td>Turning Play</td>
+<td>Path playback without overlay labels, showing actual-size 80°/35° diamond inserts with tip radii and groove-insert geometry.</td>
+</tr>
+<tr>
+<td>Spindle and feed modes</td>
+<td>G96/G97 constant surface speed or RPM, G50 speed limit, G98/G99 feed modes, M3/M4, and coolant.</td>
+</tr>
+<tr>
+<td>ISO NC output</td>
+<td>Fanuc Turn Type A with explicit G0/G1/G2/G3 and G32 moves, G18, diameter X, and I/K circular interpolation; G99 is set in the safety block and repeated only when the feed mode changes.</td>
+</tr>
+<tr>
+<td>Tool changes</td>
+<td>M09 / G28 U0 W0 / M01 before the next tool; end sequence M09 / G28 U0 W0 / M05 / M01 before M30.</td>
+</tr>
+<tr>
+<td>Program validation</td>
+<td>Independent checks of reference returns, working-coordinate reestablishment, geometry, and modal NC output.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details>
+<details class="reference-group" id="group-turning_sim" data-area="turning_sim">
+      <summary><strong>Turning Simulation</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Preview turning toolpaths in Play and check material removal in Easy G-Code Plot (EGP) before posting the NC program.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Turning Play</td>
+<td>Turning path playback without overlay labels, with actual-size 80°/35° diamond inserts, tip radii, and groove-insert geometry.</td>
+</tr>
+<tr>
+<td>Simulation inputs</td>
+<td>The setup cylinder, pilot bore, and every tool used by the program are transferred to the lathe removal model.</td>
+</tr>
+<tr>
+<td>EGP manifest</td>
+<td>Manifest v2 for Milling and Turning; the matching EGP reader is required.</td>
+</tr>
+<tr>
+<td>Stale toolpaths</td>
+<td>Play and Simulate offer regeneration of outdated toolpaths, then continue the original command.</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Cutting is excluded; built-in Play shows paths and reference models but does not remove stock or check fixture collisions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details>
+<details class="reference-group" id="group-cutting" data-area="cutting">
+      <summary><strong>Cutting CAM</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Cutting is an independent CAM Setup and operation category alongside Milling and Turning.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Independent Setup</td>
+<td>Select Cutting as its own setup type instead of a Milling operation.</td>
+</tr>
+<tr>
+<td>Original geometry</td>
+<td>Generate cutting movement along the source geometry without tool-radius offset.</td>
+</tr>
+<tr>
+<td>Operation category</td>
+<td>Cutting appears as a separate category in CAM operation selection.</td>
+</tr>
+<tr>
+<td>Tool panel</td>
+<td>The CAM Tools tab is unavailable for Cutting setups.</td>
+</tr>
+<tr>
+<td>Viewing</td>
+<td>Geometry and trajectories remain visible in XY; Play and EGP Simulate are disabled for Cutting.</td>
+</tr>
+<tr>
+<td>Operation dialog</td>
+<td>Tool, feed, Top Z, Bottom Z, Safe Z, coordinates, and comment; no spindle speed, plunge feed, stepdown, or coolant controls. Generation uses one pass at Bottom Z without coolant.</td>
+</tr>
+<tr>
+<td>AMADA Laser</td>
+<td>Dedicated postprocessor with beam on/off control, modal XY/feed output, and native radius arcs split into pieces of at most 90°. No milling tool changes, spindle/coolant commands, or Z moves are emitted.</td>
+</tr>
+<tr>
+<td>Laser Setup</td>
+<td>Material and thickness database codes, G92 X/Y coordinates, and program number; the same settings are available in CLI recipes.</td>
+</tr>
+<tr>
+<td>Project storage</td>
+<td>Cutting Setup and operations are saved with the project.</td>
+</tr>
+<tr>
+<td>CLI</td>
+<td>Generate and regenerate Cutting operations, export AMADA NC, and inspect exact XY movements and verification limits through <code>cam list --json</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details>
+<details class="reference-group" id="group-cam" data-area="cam">
+      <summary><strong>Tools, NC &amp; Playback</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Configure tools and postprocessors, manage CAM operations, generate NC output, and inspect toolpaths.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAM Setup</td>
+<td>Milling, Turning, or Cutting machine mode, stock, program number, comments, and applicable postprocessor settings; G54–G59 for milling/turning and G92 coordinates for AMADA Laser.</td>
+</tr>
+<tr>
+<td>Tool library</td>
+<td>Milling tool table with tool numbers T/H/D; turning insert types and orientation information.</td>
+</tr>
+<tr>
+<td>Spindle and coolant</td>
+<td>Spindle direction M3/M4, speed/feed settings, tool changes, and M8/M9 coolant handling.</td>
+</tr>
+<tr>
+<td>Milling postprocessors</td>
+<td>Fanuc, Heidenhain iTNC 530, and Sinumerik 840D.</td>
+</tr>
+<tr>
+<td>Turning postprocessor</td>
+<td>Fanuc Turn Type A with modal control and independent NC-text validation.</td>
+</tr>
+<tr>
+<td>Cutting postprocessor</td>
+<td>AMADA Laser with material/thickness codes, beam control, and independent NC-text validation.</td>
+</tr>
+<tr>
+<td>Postprocessor profiles</td>
+<td>Configure supported dialect formatting, precision, spacing, comments, numbering, and arc formatting; import/export profile JSON.</td>
+</tr>
+<tr>
+<td>Operation management</td>
+<td>Reorder, select, regenerate, copy/paste between open drawings, and combine compatible operations into NC output; undo/redo CAM changes.</td>
+</tr>
+<tr>
+<td>Cross-document copy</td>
+<td>Copy selected operations with their source DXF geometry and layers; shared geometry is copied once, tool-number conflicts are resolved, the target Setup is used, and pasted operations require regeneration.</td>
+</tr>
+<tr>
+<td>Generate command</td>
+<td>Regenerate checked operations, or the selected operation, from the CAM context menu without opening an editor, as one undo/redo step.</td>
+</tr>
+<tr>
+<td>Stale-path actions</td>
+<td>Play, Postprocess, and Simulate offer regeneration of outdated toolpaths, then continue the original command.</td>
+</tr>
+<tr>
+<td>Atomic recalculation</td>
+<td>Cancellation or failure does not replace the document state or output files.</td>
+</tr>
+<tr>
+<td>Diagnostics</td>
+<td>CAM errors are shown in dialogs; regeneration prompts show the operation type for one stale operation or only the count for several.</td>
+</tr>
+<tr>
+<td>NC validation</td>
+<td>Independent geometry and formatted-NC checks, including arc precision and modal states.</td>
+</tr>
+<tr>
+<td>Toolpath views</td>
+<td>XY, XZ, and YZ projections plus interactive 3D preview of toolpaths and reference models.</td>
+</tr>
+<tr>
+<td>Playback</td>
+<td>Play, pause, stop, step controls, position slider, and traveled-path display. Milling Play interpolates G0/G1/G2/G3 continuously, shows the physical cutter at the current tip, and draws only the completed path over the opaque reference model.</td>
+</tr>
+<tr>
+<td>Layer visibility</td>
+<td>Hiding a source or generated CAM layer takes priority over CAM highlighting and hides the associated preview and trajectory.</td>
+</tr>
+<tr>
+<td>External simulation</td>
+<td>EGP manifest v2 for Milling and Turning; Turning transfers its cylinder, pilot bore and all used tools to the existing lathe removal model. Requires the matching EGP reader. Cutting is excluded; v1 is legacy.</td>
+</tr>
+<tr>
+<td>Export and storage</td>
+<td><code>.cnc</code> archive, <code>.cam.json</code> sidecar, toolpath cache, combined NC programs, and Excel export of operations and tools.</td>
+</tr>
+<tr>
+<td>NC export preferences</td>
+<td>Output directory, optional external NC editor, and feed/arc precision limits; export rejects unrepresentable output before replacing a file.</td>
+</tr>
+<tr>
+<td>Background calculation</td>
+<td>CAM generation outside the GUI thread with cancellation and document/revision checks.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details>
+<details class="reference-group" id="group-cli" data-area="cli">
+      <summary><strong>CLI</strong>
+        <span class="disclosure-chevron" aria-hidden="true"></span></summary>
+      <div class="reference-body"><p>Use CAD, 3D geometry, CAM, and postprocessing without the graphical interface through recipe-driven commands.</p>
+<table>
+<thead>
+<tr>
+<th>Command or area</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inspect</code></td>
+<td>Inspect DXF/CNC documents, layers, entities, contours, inserts, and CAM operations.</td>
+</tr>
+<tr>
+<td><code>render</code></td>
+<td>Render a drawing to SVG.</td>
+</tr>
+<tr>
+<td><code>dimension</code></td>
+<td>Generate automatic drawing dimensions.</td>
+</tr>
+<tr>
+<td><code>cad apply</code></td>
+<td>Create and edit DXF geometry from JSON recipes.</td>
+</tr>
+<tr>
+<td><code>cad fasteners</code></td>
+<td>List available ISO fastener standards, sizes, and lengths.</td>
+</tr>
+<tr>
+<td><code>cam generate</code></td>
+<td>Generate milling, turning, and cutting operations from recipes, including Thread Turn.</td>
+</tr>
+<tr>
+<td><code>cam list --json</code></td>
+<td>Inspect saved operations; turning and AMADA reports include machine-readable geometry and explicit material-verification limits.</td>
+</tr>
+<tr>
+<td><code>cam regenerate</code> / <code>cam edit</code></td>
+<td>Regenerate and edit stored operations transactionally.</td>
+</tr>
+<tr>
+<td><code>cam copy</code></td>
+<td>Copy selected operations and native source geometry into another drawing, resolving tool and layer conflicts and marking pasted operations stale.</td>
+</tr>
+<tr>
+<td><code>cam postprocess</code></td>
+<td>Export controller-specific NC output for the supported Setup type.</td>
+</tr>
+<tr>
+<td>Cutting recipes</td>
+<td>Configure a separate <code>cutting</code> Setup with AMADA material/thickness codes and G92 coordinates.</td>
+</tr>
+<tr>
+<td><code>3d apply</code></td>
+<td>Create/import solids, change geometry, apply operations and arrays, and export STEP/STL/DXF.</td>
+</tr>
+<tr>
+<td><code>3d stats</code> / <code>3d measure</code></td>
+<td>Inspect geometry, body statistics, mass, and exact measurements.</td>
+</tr>
+<tr>
+<td><code>3d topology</code> / <code>3d select</code></td>
+<td>Inspect topology and select B-Rep elements using geometric criteria.</td>
+</tr>
+<tr>
+<td><code>3d to-cam</code></td>
+<td>Transfer a 3D model as a CAM reference mesh.</td>
+</tr>
+<tr>
+<td><code>batch</code></td>
+<td>Execute repeatable operations on drawing/CAM projects.</td>
+</tr>
+<tr>
+<td>File protection</td>
+<td>Check inputs and write output files transactionally.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </details></div>
+        <p class="empty-results" id="no-results" hidden>No matching features. Try another search.</p>
+      </div>
+    </section>
+
+    <section class="section limitations-section" id="limitations">
+      <div class="container">
+        <h2>Limitations</h2>
+        <div class="limit-content"><details class="scope-group"><summary>CAD and technical drawings</summary><div><ul>
+<li>DXF is supported natively; native DWG reading and writing are not included.</li>
+<li>Standard fastener macros use six ISO catalogues. Studs, custom fastener catalogues, and a general sketch-constraint solver are not provided.</li>
+<li>Automatic dimensions apply to recognized drawing geometry, rather than every possible drawing.</li>
+<li>CAD can display inches, but CAM and generated NC calculations use millimetres; G20 output is not provided.</li>
+</ul>
+</div></details>
+<details class="scope-group"><summary>3D modeling and projects</summary><div><ul>
+<li>3D View is direct B-Rep modeling, not a complete parametric CAD system with a persistent feature tree or constrained 3D sketcher.</li>
+<li>Editable 3D scenes are session-based. DXF and <code>.cnc</code> do not save the full editable scene; crash-recovery snapshots are not a user-facing project format.</li>
+<li>Boolean operations, fillets, chamfers, and holes require exact B-Rep bodies; arbitrary STL meshes are not converted into analytical solids.</li>
+<li>Face-based construction and holes require bounded planar faces, not arbitrary curved faces.</li>
+<li>Threaded holes do not contain helical thread geometry.</li>
+<li>Topology references track recorded operations and are not guaranteed stable after independent STEP reimport or model recreation.</li>
+<li>Body integrity diagnosis is available in the core/CLI; automatic B-Rep repair is not provided.</li>
+<li>There is no full 3D surface-machining CAM. Sending a 3D model to CAM supplies reference geometry rather than arbitrary-surface toolpaths.</li>
+</ul>
+</div></details>
+<details class="scope-group"><summary>Milling, cutting and simulation</summary><div><ul>
+<li>Without Setup, Open Pocket accepts one simple U-shaped wall without islands. With Setup, wall endpoints must meet stock boundaries and the selected Left/Right side must identify one unambiguous region.</li>
+<li>Adaptive 2D is experimental for complex geometry.</li>
+<li>Rest Milling uses geometric remaining-area estimates; it does not simulate actual stock removal.</li>
+<li>Cutting follows original geometry with no tool offset; holding tabs and automatic nesting are not provided.</li>
+<li>AMADA Laser supports manual-feed through cutting. Automatic material-table feeds, etching, pierce timing, and separate files per contour are not implemented.</li>
+<li>AMADA export rejects helices, non-XY arcs, sloped cuts, and multiple cutting planes within one operation. Laser kerf, thermal effects, piercing, and actual material removal are not verified.</li>
+<li>AMADA stock Z and operation heights do not set the thickness database code or produce Z commands. Cutting Play and EGP Simulate are disabled.</li>
+<li>Built-in 3D Play displays paths and reference models but does not simulate stock removal or fixture collisions. Material-removal simulation is delegated to compatible EGP workflows.</li>
+<li>EGP manifest compatibility and simulation capabilities depend on the corresponding EGP version and supported tool types.</li>
+</ul>
+</div></details>
+<details class="scope-group"><summary>Turning and NC</summary><div><ul>
+<li>Turning supports two-axis XZ geometry and the Fanuc Turn Type A dialect; live tooling, C/Y axes, and general lathe controller support are not provided.</li>
+<li>Turning uses explicit moves, including G32 for straight threads. Automatic G70–G76 canned turning cycles are not generated.</li>
+<li>Thread Turn accepts one straight axial segment and cuts toward decreasing Z (180°), with start Z greater than end Z. Tapers, arcs, and multiple source lines are rejected. Thread-form geometry and material removal are not verified.</li>
+<li>Turning roughing, finishing, and boring require supported, accessible profiles. Full stock removal and insert-holder/chuck collisions are not verified.</li>
+<li>Lathe Drilling depth ends at the drill tip. Core/CLI reports check axial paths and bounds, not complete material removal or holder/chuck clearance. EGP uses its existing drill-point stock model.</li>
+<li>Groove approaches the selected local opening plus clearance, assuming earlier machining has exposed it; floor-only geometry uses the Setup surface as the missing opening reference. Prior stock removal is not verified.</li>
+<li>Saved groove toolpaths created with the former edge convention and other outdated toolpaths require regeneration.</li>
+<li>Built-in postprocessor dialects and formatting profiles are provided, but arbitrary user-defined controllers (for example, dedicated Haas or Okuma profiles) are not built in.</li>
+<li>CAM JSON v3 is used; full compatibility with legacy v1/v2 files is not provided.</li>
+</ul>
+</div></details></div>
+      </div>
+    </section>
+  </main>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <a class="brand" href="#top"
+          ><img src="assets/logo.svg" width="36" height="36" alt="" /><span
+            >MiniCAD</span
+          ></a
+        >
+        <p>2D drafting, solid modeling and CNC toolpaths.</p>
+      </div>
+      <div class="footer-links">
+        <a href="features.md">Documentation</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MaestroFusion360</span>
+      <div class="languages" role="group" aria-label="Language"><a href="index.html" lang="en" hreflang="en" aria-current="page">EN</a><a href="ru/index.html" lang="ru" hreflang="ru">RU</a></div>
+      <a href="LICENSE">Website license (MIT)</a>
+    </div>
+  </div>
+</footer>
+    <dialog
+      id="image-viewer"
+      aria-label="Image or video preview"
+      aria-describedby="viewer-caption"
+    >
+      <div class="viewer-toolbar">
+        <p id="viewer-caption" aria-live="polite"></p>
+      </div>
+      <button
+        type="button"
+        class="viewer-close"
+        aria-label="Close preview"
+        autofocus
+      >
+        <span aria-hidden="true">✕</span>
+      </button>
+      <div class="viewer-stage">
+        <img alt="" hidden />
+      </div>
+      <div class="viewer-footer">
+        <a class="viewer-original" target="_blank" rel="noopener"
+          >Open original ↗</a
+        >
+      </div>
+    </dialog>
+</body>
+</html>

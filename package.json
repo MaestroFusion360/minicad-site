@@ -1,0 +1,31 @@
+{
+  "name": "minicad-site",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "uv run python tools/build.py",
+    "build:check": "uv run python tools/build.py --check",
+    "lint": "uv run ruff check . && eslint site.js tools/*.mjs eslint.config.mjs stylelint.config.mjs && stylelint styles.css",
+    "format:check": "uv run ruff format --check . && prettier --check site.js styles.css tools/*.mjs package.json eslint.config.mjs stylelint.config.mjs .prettierrc.json",
+    "format": "uv run ruff format . && prettier --write site.js styles.css tools/*.mjs package.json eslint.config.mjs stylelint.config.mjs .prettierrc.json && uv run python tools/build.py",
+    "check": "npm run build:check && npm run lint && npm run format:check && npm run check:site && npm test",
+    "test": "node --test tools/*.test.mjs",
+    "check:site": "node tools/check-site.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "^10.15.0",
+    "globals": "17.13.0",
+    "jsdom": "^31.0.1",
+    "parse-srcset": "^1.0.2",
+    "parse5": "^8.1.1",
+    "postcss": "^8.5.33",
+    "postcss-value-parser": "^4.2.0",
+    "prettier": "3.9.9",
+    "stylelint": "17.16.0",
+    "stylelint-config-recommended": "18.0.0"
+  },
+  "license": "MIT"
+}
